@@ -9,9 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>baisiyu-common</artifactId>
-
+    <artifactId>baisiyu-article</artifactId>
     <dependencies>
+        <!--   内部依赖     -->
+        <dependency>
+            <artifactId>baisiyu-common</artifactId>
+            <groupId>com.baisiyu</groupId>
+        </dependency>
+
         <!--  spring boot starter      -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -22,4 +27,5 @@
             <artifactId>spring-boot-test</artifactId>
         </dependency>
     </dependencies>
+
 </project>
