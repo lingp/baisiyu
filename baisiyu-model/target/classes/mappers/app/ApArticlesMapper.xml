@@ -34,10 +34,39 @@
 
 
 
-    <select id="selectById" resultType="com.baisiyu.model.articles.pojos.ApArticle" parameterType="java.lang.Long">
+    <select id="selectById" resultMap="resultMap" parameterType="java.lang.Long">
         select <include refid="Base_Column_List" />
         from ap_articles
         where id = #{id}
+    </select>
+
+    <select id="getApArticleList" resultMap="resultMap">
+        select
+            <include refid="Base_Column_List"></include>
+        from ap_articles
+        <where>
+            <if test="dto.provinceId != null">
+                and province_id = #{dto.provinceId}
+            </if>
+            <if test="dto.cityId != null">
+                and city_id = #{dto.cityId}
+            </if>
+            <if test="dto.countryId != null">
+                and county_id = #{dto.countyId}
+            </if>
+            <if test="type != null and type ==1">
+                and publish_time <![CDATA[<]]>  #{dto.minBeHotTime}
+            </if>
+
+            <if test="type != null and type ==2">
+                and publish_time <![CDATA[>]]>  #{dto.maxBeHotTime}
+            </if>
+
+            <if test="dto.channelId != null ">
+                and aa.channel_id = #{dto.channelId}
+            </if>
+        </where>
+        limit #{dto.size}
     </select>
 
 
