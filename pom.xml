@@ -70,7 +70,11 @@
         <commons.codec.version>1.12</commons.codec.version>
         <lombok.version>1.18.8</lombok.version>
         <lang3.version>3.5</lang3.version>
-
+        <mysql.version>5.1.47</mysql.version>
+        <mybatis.version>3.5.1</mybatis.version>
+        <mybatis.spring.version>2.0.1</mybatis.spring.version>
+        <fastjson.version>1.2.58</fastjson.version>
+        <fastjson.dataformat.version>2.9.9</fastjson.dataformat.version>
 
     </properties>
     <dependencies>
@@ -166,6 +170,40 @@
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
                 <version>${commons.codec.version}</version>
+            </dependency>
+
+            <!-- Mysql 数据库 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis.spring.version}</version>
+            </dependency>
+
+            <!-- fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-cbor</artifactId>
+                <version>${fastjson.dataformat.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-xml</artifactId>
+                <version>${fastjson.dataformat.version}</version>
             </dependency>
 
         </dependencies>
