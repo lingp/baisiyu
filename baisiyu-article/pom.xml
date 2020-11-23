@@ -16,6 +16,10 @@
             <artifactId>baisiyu-common</artifactId>
             <groupId>com.baisiyu</groupId>
         </dependency>
+        <dependency>
+            <artifactId>baisiyu-api</artifactId>
+            <groupId>com.baisiyu</groupId>
+        </dependency>
 
         <!--  spring boot starter      -->
         <dependency>

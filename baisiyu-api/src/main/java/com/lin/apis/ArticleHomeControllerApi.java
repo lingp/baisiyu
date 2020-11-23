@@ -1,4 +1,7 @@
 package com.lin.apis;
 
-public class ArticleHomeControllerApi {
+import com.baisiyu.model.articles.pojos.ApArticle;
+
+public interface ArticleHomeControllerApi {
+    public ApArticle getArticleById(Long id);
 }
