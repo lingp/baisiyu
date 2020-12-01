@@ -36,12 +36,12 @@ public class ArticleHomeController implements ArticleHomeControllerApi {
 
     @Override
     public ResponseResult loadMore(ArticleHomeDto dto) {
-        return null;
+        return appArticleService.load(dto, ArticleConstans.LOADTYPE_LOAD_MORE);
     }
 
     @Override
     public ResponseResult loadNew(ArticleHomeDto dto) {
-        return null;
+        return appArticleService.load(dto, ArticleConstans.LOADTYPE_LOAD_NEW);
     }
 
 
