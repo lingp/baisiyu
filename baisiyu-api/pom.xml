@@ -16,6 +16,10 @@
             <artifactId>baisiyu-model</artifactId>
             <groupId>com.baisiyu</groupId>
         </dependency>
+        <dependency>
+            <groupId>com.baisiyu</groupId>
+            <artifactId>baisiyu-common</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
