@@ -28,4 +28,8 @@ public final class MD5 {
             throw new RuntimeException("MD5加密出错！！+" + e);
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println(MD5.encrypt("123"));
+    }
 }

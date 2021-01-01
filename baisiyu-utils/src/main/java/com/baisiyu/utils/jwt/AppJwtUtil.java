@@ -1,8 +1,6 @@
-package com.heima.utils.jwt;
+package com.baisiyu.utils.jwt;
 
-import com.heima.model.admin.pojos.AdUser;
-import com.heima.model.user.pojos.ApUser;
-import com.heima.model.media.pojos.WmUser;
+import com.baisiyu.model.user.pojos.ApUser;
 import io.jsonwebtoken.*;
 
 import javax.crypto.SecretKey;
@@ -14,7 +12,7 @@ public class AppJwtUtil {
     // TOKEN的有效期一天（S）
     private static final int TOKEN_TIME_OUT = 3_600;
     // 加密KEY
-    private static final String TOKEN_ENCRY_KEY = "MDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjY";
+    private static final String TOKEN_ENCRY_KEY = "MDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjYcereshuzhitingnizhenbangcereshuzhitingnizhenbang";
     // 最小刷新间隔(S)
     private static final int REFRESH_TIME = 300;
 
@@ -28,25 +26,25 @@ public class AppJwtUtil {
        return getToken(user.getId());
     }
 
-    /**
-     * 获取token
-     *
-     * @param user 管理端
-     * @return
-     */
-    public static String getToken(AdUser user) {
-        return getToken(Long.valueOf(user.getId()));
-    }
-
-    /**
-     * 获取token
-     *
-     * @param user 客户端用户
-     * @return
-     */
-    public static String getToken(WmUser user) {
-        return getToken(user.getId());
-    }
+//    /**
+//     * 获取token
+//     *
+//     * @param user 管理端
+//     * @return
+//     */
+//    public static String getToken(AdUser user) {
+//        return getToken(Long.valueOf(user.getId()));
+//    }
+//
+//    /**
+//     * 获取token
+//     *
+//     * @param user 媒体端端用户
+//     * @return
+//     */
+//    public static String getToken(WmUser user) {
+//        return getToken(user.getId());
+//    }
 
     // 生产ID
     private static String getToken(Long id){
@@ -57,7 +55,7 @@ public class AppJwtUtil {
                 .setId(UUID.randomUUID().toString())
                 .setIssuedAt(new Date(currentTime))  //签发时间
                 .setSubject("system")  //说明
-                .setIssuer("heima") //签发者信息
+                .setIssuer("baisiyu") //签发者信息
                 .setAudience("app")  //接收用户
                 .compressWith(CompressionCodecs.GZIP)  //数据压缩方式
                 .signWith(SignatureAlgorithm.HS512, generalKey()) //加密方式
@@ -135,7 +133,7 @@ public class AppJwtUtil {
      */
     public static SecretKey generalKey() {
         byte[] encodedKey = Base64.getEncoder().encode(TOKEN_ENCRY_KEY.getBytes());
-        SecretKey key = new SecretKeySpec(encodedKey, 0, encodedKey.length, "AES");
+        SecretKey key = new SecretKeySpec(encodedKey, 0, encodedKey.length, "HmacSHA256");
         return key;
     }
 

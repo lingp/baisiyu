@@ -1,6 +1,6 @@
 package com.baisiyu.tests;
 
-import com.baisiyu.common.constants.Contants;
+import com.baisiyu.common.constants.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -11,7 +11,7 @@ public class TestsApp {
     static Logger LOGGER = LoggerFactory.getLogger(TestsApp.class);
 
     public static void main(String[] args) {
-        LOGGER.info("start test project:{}", Contants.APP_NAME);
+        LOGGER.info("start test project:{}", Constants.APP_NAME);
         SpringApplication.run(TestsApp.class, args);
     }
 }

@@ -3,14 +3,12 @@
 <mapper namespace="com.baisiyu.model.mappers.app.ApUserMapper">
     <resultMap id="resultMap" type="com.baisiyu.model.user.pojos.ApUser">
         <id column="id" property="id"/>
-        <id column="token" property="token"></id>
+        <id column="salt" property="salt"></id>
         <id column="username" property="username"></id>
         <id column="password" property="password"></id>
         <id column="phone" property="phone"></id>
         <id column="image" property="image"></id>
         <id column="sex" property="sex"></id>
-        <id column="is_certification" property="isCertification"></id>
-        <id column="is_identity_authentication" property="isIdentityAuthentication"></id>
         <id column="status" property="status"></id>
         <id column="flag" property="flag"></id>
         <id column="created_at" property="createdAt"></id>
@@ -18,8 +16,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,token,username,password,phone,image,sex,is_certification,
-        is_identity_authentication,status,flag,created_at,updated_at
+        id,salt,username,password,phone,image,sex,status,flag,created_at,updated_at
     </sql>
 
     <select id="selectById" resultMap="resultMap" parameterType="java.lang.Long">

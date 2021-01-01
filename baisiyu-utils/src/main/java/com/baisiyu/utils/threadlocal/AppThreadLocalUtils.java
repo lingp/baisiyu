@@ -1,7 +1,7 @@
-package com.heima.utils.threadlocal;
+package com.baisiyu.utils.threadlocal;
 
 
-import com.heima.model.user.pojos.ApUser;
+import com.baisiyu.model.user.pojos.ApUser;
 
 public class AppThreadLocalUtils {
 

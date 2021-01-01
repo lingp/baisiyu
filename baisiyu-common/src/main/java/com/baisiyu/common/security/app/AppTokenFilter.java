@@ -1,18 +1,23 @@
-package com.heima.common.web.app.security;
+package com.baisiyu.common.security.app;
 
 import com.alibaba.fastjson.JSON;
-import com.heima.common.common.contants.Contants;
-import com.heima.model.common.dtos.ResponseResult;
-import com.heima.model.common.enums.AppHttpCodeEnum;
-import com.heima.model.user.pojos.ApUser;
-import com.heima.utils.jwt.AppJwtUtil;
-import com.heima.utils.threadlocal.AppThreadLocalUtils;
+import com.baisiyu.common.constants.Constants;
+import com.baisiyu.common.response.dtos.ResponseResult;
+import com.baisiyu.common.response.enums.AppHttpCodeEnum;
+import com.baisiyu.model.mappers.app.ApUserMapper;
+import com.baisiyu.model.user.pojos.ApUser;
+import com.baisiyu.utils.jwt.AppJwtUtil;
+import com.baisiyu.utils.threadlocal.AppThreadLocalUtils;
 import io.jsonwebtoken.Claims;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.filter.GenericFilterBean;
 
-import javax.servlet.*;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -21,14 +26,17 @@ import java.io.IOException;
 @WebFilter(filterName = "appTokenFilter" ,urlPatterns = "/*")
 public class AppTokenFilter extends GenericFilterBean {
 
+    @Autowired
+    private ApUserMapper apUserMapper;
+
     public  void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException{
         HttpServletRequest request = (HttpServletRequest)req;
         ResponseResult<?> result = checkToken(request);
         // 测试和开发环境不过滤
-        if(true||result==null||!Contants.isProd()){
+        if(false||result==null||!Constants.isProd()){
             chain.doFilter(req,res);
         }else{
-            res.setCharacterEncoding(Contants.CHARTER_NAME);
+            res.setCharacterEncoding(Constants.CHARTER_NAME);
             res.setContentType("application/json");
             res.getOutputStream().write(JSON.toJSONString(result).getBytes());
         }
@@ -53,7 +61,7 @@ public class AppTokenFilter extends GenericFilterBean {
                 user = findUser(user);
                 if(user.getId()!=null) {
                     AppThreadLocalUtils.setUser(user);
-                    //验证成功 发送用户刷新消息
+                    //验证成功 发送用户刷新消息 TODO
                     sendUserRefresh(user);
                 }else{
                     rr = ResponseResult.setAppHttpCodeEnum(AppHttpCodeEnum.TOKEN_INVALID);
@@ -80,8 +88,8 @@ public class AppTokenFilter extends GenericFilterBean {
     }
 
     public ApUser findUser(ApUser user){
-        user.setName("test");
-        return user;
+        ApUser apUser =  apUserMapper.selectById(user.getId());
+        return apUser;
     }
 
 }

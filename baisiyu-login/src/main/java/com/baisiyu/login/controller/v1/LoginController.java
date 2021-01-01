@@ -4,6 +4,7 @@ import com.baisiyu.common.response.dtos.ResponseResult;
 import com.baisiyu.login.service.ApUserLoginService;
 import com.baisiyu.model.user.dtos.ApUserDao;
 import com.baisiyu.model.user.pojos.ApUser;
+import com.baisiyu.utils.common.MD5;
 import com.lin.apis.login.LoginControllerApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +24,7 @@ public class LoginController implements LoginControllerApi {
     public ResponseResult login(@RequestBody ApUserDao apUserDao) {
         ApUser apUser = new ApUser();
         apUser.setPhone(apUserDao.getUsername()); // TODO, 暂时只支持手机号登录
-        apUser.setPhone(apUserDao.getPassword());
+        apUser.setPassword(MD5.encrypt(apUserDao.getPassword()));
         return apUserLoginService.login(apUser);
     }
 }

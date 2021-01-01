@@ -21,6 +21,10 @@
             <artifactId>baisiyu-api</artifactId>
             <groupId>com.baisiyu</groupId>
         </dependency>
+        <dependency>
+            <artifactId>baisiyu-utils</artifactId>
+            <groupId>com.baisiyu</groupId>
+        </dependency>
 
         <!--  spring boot starter      -->
         <dependency>
@@ -31,9 +35,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-test</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+
+
     </dependencies>
 </project>

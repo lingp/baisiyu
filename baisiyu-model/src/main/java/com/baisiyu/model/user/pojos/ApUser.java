@@ -7,15 +7,13 @@ import java.util.Date;
 @Data
 public class ApUser {
     private Long id;
-    private String token;
+    private String salt;
     private String username;
     private String password;
     private String phone;
     private String image;
-    private Boolean sex;
-    private Boolean isCertification;
-    private Boolean isIdentityAuthentication;
-    private Boolean status;
+    private int sex;
+    private int status;
     private int flag;
     private Date createdAt;
     private Date updatedAt;
