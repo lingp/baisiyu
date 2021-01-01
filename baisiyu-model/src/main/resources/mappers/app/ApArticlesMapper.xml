@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.baisiyu.model.mappers.ApArticlesMapper">
+<mapper namespace="com.baisiyu.model.mappers.app.ApArticlesMapper">
 
     <resultMap id="resultMap" type="com.baisiyu.model.articles.pojos.ApArticle">
         <id column="id" property="id"/>

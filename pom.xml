@@ -15,6 +15,7 @@
         <module>baisiyu-tests</module>
         <module>baisiyu-api</module>
         <module>baisiyu-article</module>
+        <module>baisiyu-login</module>
     </modules>
 
     <!--  继承spring-boot工程  -->
@@ -75,7 +76,8 @@
         <mybatis.spring.version>2.0.1</mybatis.spring.version>
         <fastjson.version>1.2.58</fastjson.version>
         <fastjson.dataformat.version>2.9.9</fastjson.dataformat.version>
-
+        <jwt.version>0.10.6</jwt.version>
+        <spring.jwt.version>1.1.1.RELEASE</spring.jwt.version>
     </properties>
     <dependencies>
         <!--日志处理包-->
@@ -153,6 +155,20 @@
                 </exclusions>
                 <version>${spring.boot.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+
+            <!-- Spring boot 特殊处理包 -->
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-jwt</artifactId>
+                <version>${spring.jwt.version}</version>
+            </dependency>
             <!--    spring boot end        -->
             <!--Apache 工具包-->
             <dependency>
@@ -206,6 +222,22 @@
                 <version>${fastjson.dataformat.version}</version>
             </dependency>
 
+            <!-- jwt -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-api</artifactId>
+                <version>${jwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-impl</artifactId>
+                <version>${jwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jackson</artifactId>
+                <version>${jwt.version}</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>

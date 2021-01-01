@@ -1,4 +1,4 @@
-package com.lin.apis;
+package com.lin.apis.articles;
 
 import com.baisiyu.common.response.dtos.ResponseResult;
 import com.baisiyu.model.articles.dtos.ArticleHomeDto;

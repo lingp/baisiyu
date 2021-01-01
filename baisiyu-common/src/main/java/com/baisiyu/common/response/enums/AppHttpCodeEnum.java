@@ -24,7 +24,10 @@ public enum AppHttpCodeEnum {
     AP_USER_DATA_NOT_EXIST(1001,"ApUser数据不存在"),
     DATA_NOT_EXIST(1002,"数据不存在"),
     // 数据错误 3000~3500
-    NO_OPERATOR_AUTH(3000,"无权限操作");
+    NO_OPERATOR_AUTH(3000,"无权限操作"),
+
+    // 未授权
+    UNAUTHORIZED(4001, "未授权");
 
     int code;
     String errorMessage;

@@ -5,15 +5,11 @@ import com.baisiyu.common.constants.articles.ArticleConstans;
 import com.baisiyu.common.response.dtos.ResponseResult;
 import com.baisiyu.model.articles.dtos.ArticleHomeDto;
 import com.baisiyu.model.articles.pojos.ApArticle;
-import com.baisiyu.model.mappers.ApArticlesMapper;
-import com.baisiyu.model.user.ApUser;
-import com.mchange.lang.IntegerUtils;
-import org.apache.commons.lang3.StringUtils;
+import com.baisiyu.model.mappers.app.ApArticlesMapper;
+import com.baisiyu.model.user.pojos.ApUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.validation.constraints.Max;
-import java.awt.*;
 import java.util.Date;
 import java.util.List;
 

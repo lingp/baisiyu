@@ -1,4 +1,4 @@
-package com.baisiyu.model.mappers;
+package com.baisiyu.model.mappers.app;
 
 import com.baisiyu.model.articles.dtos.ArticleHomeDto;
 import com.baisiyu.model.articles.pojos.ApArticle;
