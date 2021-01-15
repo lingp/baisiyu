@@ -35,4 +35,15 @@
         from ap_user
         where username = #{username}
     </select>
+    <select id="selectByIds" resultMap="resultMap">
+        select <include refid="Base_Column_List"></include>
+        from ap_user
+         where id in (
+        <trim suffix="" suffixOverrides=",">
+            <foreach collection="ids" item="id" separator=",">
+                #{id}
+            </foreach>
+        </trim>
+        )
+    </select>
 </mapper>

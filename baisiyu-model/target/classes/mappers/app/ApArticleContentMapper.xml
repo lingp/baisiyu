@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baisiyu.model.mappers.app.ApArticleContentMapper">
+
+
+
+    <resultMap id="resultMap" type="com.baisiyu.model.articles.pojos.ApArticleContent">
+        <id column="id" property="id"/>
+        <result column="article_id" property="articleId"/>
+        <result column="content" property="content"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+     id,article_id,content,created_at,updated_at
+    </sql>
+
+    <select id="selectByArticleId" resultMap="resultMap">
+        select
+            <include refid="Base_Column_List"></include>
+        from ap_article_contents
+        where article_id = #{articleId}
+    </select>
+    <select id="selectByArticleIds" resultMap="resultMap">
+        select
+        <include refid="Base_Column_List"></include>
+        from ap_article_contents
+        where article_id in (
+            <trim suffix="" suffixOverrides=",">
+                <foreach collection="articleIds" item="articleId" separator=",">
+                    #{articleId}
+                </foreach>
+            </trim>
+        )
+    </select>
+
+
+</mapper>

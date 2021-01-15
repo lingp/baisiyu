@@ -32,8 +32,6 @@
     publish_time,sync_status, updated_at
     </sql>
 
-
-
     <select id="selectById" resultMap="resultMap" parameterType="java.lang.Long">
         select <include refid="Base_Column_List" />
         from ap_articles
@@ -63,7 +61,7 @@
             </if>
 
             <if test="dto.channelId != null ">
-                and aa.channel_id = #{dto.channelId}
+                and channel_id = #{dto.channelId}
             </if>
         </where>
         limit #{dto.size}
