@@ -76,30 +76,32 @@ public class AppArticleServiceImpl implements AppArticleService {
                 articleIds.add(article.getId());
                 userIds.add(article.getAuthorId());
             }
-            List<ApArticleContent> apArticleContents = apArticleContentMapper.selectByArticleIds(articleIds);
-            List<ApUser> apUsers = apUserMapper.selectByIds(userIds);
 
-            for (ApArticle article : articles) {
+            if (!articleIds.isEmpty()) {
+                List<ApArticleContent> apArticleContents = apArticleContentMapper.selectByArticleIds(articleIds);
+                List<ApUser> apUsers = apUserMapper.selectByIds(userIds);
 
-                ApArticleVo apArticleVo = new ApArticleVo();
+                for (ApArticle article : articles) {
 
-                BeanUtils.copyProperties(article, apArticleVo);
+                    ApArticleVo apArticleVo = new ApArticleVo();
 
-                for (ApArticleContent content : apArticleContents) {
-                    if (content.getArticleId() == article.getId()) {
-                        apArticleVo.setContent(content.getContent());
+                    BeanUtils.copyProperties(article, apArticleVo);
+
+                    for (ApArticleContent content : apArticleContents) {
+                        if (content.getArticleId() == article.getId()) {
+                            apArticleVo.setContent(content.getContent());
+                        }
                     }
-                }
 
-                for (ApUser user: apUsers) {
-                    if (user.getId() == article.getAuthorId()) {
-                        apArticleVo.setAuthorPortraitImg(user.getImage());
-                        apArticleVo.setAuthorName(user.getUsername());
+                    for (ApUser user: apUsers) {
+                        if (user.getId() == article.getAuthorId()) {
+                            apArticleVo.setAuthorPortraitImg(user.getImage());
+                            apArticleVo.setAuthorName(user.getUsername());
+                        }
                     }
+                    voApArticles.add(apArticleVo);
                 }
-                voApArticles.add(apArticleVo);
             }
-
         } else {
 
         }
