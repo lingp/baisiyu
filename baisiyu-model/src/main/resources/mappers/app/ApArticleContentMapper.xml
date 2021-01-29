@@ -35,5 +35,8 @@
         )
     </select>
 
+    <insert id="addArticleContent" parameterType="com.baisiyu.model.articles.pojos.ApArticleContent">
+       insert into ap_article_contents (article_id, content) values (#{articleId}, #{content})
+    </insert>
 
 </mapper>

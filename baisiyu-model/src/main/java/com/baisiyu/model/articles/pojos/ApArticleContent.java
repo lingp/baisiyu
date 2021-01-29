@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 public class ApArticleContent {
     private Integer id;
-    private Integer articleId;
+    private Long articleId;
     private String content;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:s", timezone = "GMT+8")

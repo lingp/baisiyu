@@ -9,6 +9,8 @@ public interface ApArticleContentMapper {
 
     ApArticleContent selectByArticleId(Long articleId);
 
-    List<ApArticleContent> selectByArticleIds(@Param("articleIds") List<Integer> articleIds);
+    List<ApArticleContent> selectByArticleIds(@Param("articleIds") List<Long> articleIds);
 
+
+    Boolean addArticleContent(ApArticleContent apArticleContent);
 }

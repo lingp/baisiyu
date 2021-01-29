@@ -3,7 +3,7 @@
 <mapper namespace="com.baisiyu.model.mappers.app.ApArticlesMapper">
 
     <resultMap id="resultMap" type="com.baisiyu.model.articles.pojos.ApArticle">
-        <id column="id" property="id"/>
+        <id column="id" property="id" javaType="long"/>
         <result column="title" property="title"/>
         <result column="author_id" property="authorId"/>
         <result column="author_name" property="authorName"/>
@@ -19,7 +19,7 @@
         <result column="views" property="views"/>
         <result column="province_id" property="provinceId"/>
         <result column="city_id" property="cityId"/>
-        <result column="county_id" property="countyId"/>
+        <result column="country_id" property="countryId"/>
         <result column="publish_time" property="publishTime"/>
         <result column="sync_status" property="syncStatus"/>
         <result column="created_at" property="createdAt"/>
@@ -67,5 +67,15 @@
         limit #{dto.size}
     </select>
 
+    <insert id="addArticle" parameterType="com.baisiyu.model.articles.pojos.ApArticle"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into ap_articles
+        (title, author_id, author_name, channel_id, channel_name, layout_type, flag, images,
+        labels, province_id, city_id, county_id, publish_time, source)
+        values
+        (#{title}, #{authorId}, #{authorName}, #{channelId}, #{channelName}, #{layoutType}, #{flag},
+         #{images}, #{labels}, #{provinceId}, #{cityId}, #{countryId}, #{publishTime}, #{source}
+        )
 
+    </insert>
 </mapper>

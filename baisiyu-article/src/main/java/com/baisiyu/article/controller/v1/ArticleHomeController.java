@@ -31,13 +31,13 @@ public class ArticleHomeController implements ArticleHomeControllerApi {
         return appArticleService.load(dto, ArticleConstans.LOADTYPE_LOAD_MORE);
     }
 
-    @GetMapping("/load_more")
+    @PostMapping("/load_more")
     @Override
     public ResponseResult loadMore(@RequestBody ArticleHomeDto dto) {
         return appArticleService.load(dto, ArticleConstans.LOADTYPE_LOAD_MORE);
     }
 
-    @GetMapping("/load_new")
+    @PostMapping("/load_new")
     @Override
     public ResponseResult loadNew(@RequestBody ArticleHomeDto dto) {
         return appArticleService.load(dto, ArticleConstans.LOADTYPE_LOAD_NEW);

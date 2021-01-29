@@ -14,4 +14,7 @@ public interface ApArticlesMapper {
 
     // 获取文章列表
     List<ApArticle> getApArticleList(@Param("dto") ArticleHomeDto dto, @Param("type") Short type);
+
+
+    Boolean addArticle(ApArticle apArticle);
 }

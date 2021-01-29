@@ -13,7 +13,7 @@ import java.util.Date;
 //@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class ApArticleVo implements Serializable {
     private static final long serialVersionUID = 1L;
-    private Integer id;
+    private Long id;
     private String title;
 
     private Long authorId;

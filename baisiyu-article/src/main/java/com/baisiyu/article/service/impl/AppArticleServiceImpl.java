@@ -69,7 +69,8 @@ public class AppArticleServiceImpl implements AppArticleService {
             // TODO ，这代码，要去重新弄下
             // 获取文章列表
             articles = apArticlesMapper.getApArticleList(dto, type);
-            List<Integer> articleIds = new ArrayList<>();
+            System.out.println(articles);
+            List<Long> articleIds = new ArrayList<>();
             List<Long> userIds = new ArrayList<>();
 
             for (ApArticle article : articles) {

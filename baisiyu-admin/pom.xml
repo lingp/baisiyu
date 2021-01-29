@@ -11,5 +11,25 @@
 
     <artifactId>baisiyu-admin</artifactId>
 
+    <dependencies>
+        <!--   内部依赖     -->
+        <dependency>
+            <artifactId>baisiyu-common</artifactId>
+            <groupId>com.baisiyu</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>baisiyu-api</artifactId>
+            <groupId>com.baisiyu</groupId>
+        </dependency>
 
+        <!--  spring boot starter      -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test</artifactId>
+        </dependency>
+    </dependencies>
 </project>

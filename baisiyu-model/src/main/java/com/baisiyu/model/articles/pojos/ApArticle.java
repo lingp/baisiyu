@@ -9,11 +9,11 @@ import java.util.Date;
 
 @Data
 public class ApArticle {
-    private Integer id;
+    private Long id;
     private String title;
     private Long authorId;
     private String authorName;
-    private Integer channelId;
+    private Long channelId;
     private String channelName;
     private Short layoutType;
     private Byte flag;
@@ -25,7 +25,8 @@ public class ApArticle {
     private Integer views;
     private Integer provinceId;
     private Integer cityId;
-    private Integer countyId;
+    private Integer countryId;
+    private Integer source;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:s", timezone = "GMT+8")
     private Date publishTime;
     private Boolean syncStatus;

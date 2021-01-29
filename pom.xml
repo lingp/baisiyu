@@ -16,6 +16,7 @@
         <module>baisiyu-api</module>
         <module>baisiyu-article</module>
         <module>baisiyu-login</module>
+        <module>baisiyu-admin</module>
     </modules>
 
     <!--  继承spring-boot工程  -->

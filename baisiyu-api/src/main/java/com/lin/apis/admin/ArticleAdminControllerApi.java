@@ -4,7 +4,7 @@ import com.baisiyu.common.response.dtos.ResponseResult;
 import com.baisiyu.model.articles.dtos.ArticleAdminDto;
 import com.baisiyu.model.articles.dtos.ArticleHomeDto;
 
-public interface ArticleControllerApi {
+public interface ArticleAdminControllerApi {
 
     // 文章列表
 
